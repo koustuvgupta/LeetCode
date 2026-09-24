@@ -1,0 +1,26 @@
+class Solution {
+    public int smallestIndex(int[] nums) {
+        int min = Integer.MAX_VALUE;
+        for(int i=0;i<nums.length;i++){
+            int digitsum = sum(nums[i]);
+            if(i==digitsum){
+                min = Math.min(min,i);
+            }
+        }
+        if(min==Integer.MAX_VALUE){
+            return -1;
+        }
+        return min;
+        
+    }
+
+    static int sum(int n){
+        int s = n;
+        int digSum =0 ;
+        while(s>0){
+            digSum += s%10;
+            s=s/10;
+        }
+        return digSum;
+    }
+}
